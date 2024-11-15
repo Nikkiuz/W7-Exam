@@ -18,15 +18,15 @@ if (productId) {
     const productDetail = document.getElementById("card-container");
     const productCard = `
       <div class="col-12 mb-4 mt-4">
-        <div class="card">
+        <div class="card border-warning text-success">
           <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
-          <div class="card-body">
+          <div class="card-body bg-success-subtle">
             <h5 class="card-title">${product.name}</h5>
             <p class="card-text">${product.description}</p>
             <p class="card-text"><strong>Marca:</strong> ${product.brand}</p>
             <p class="card-text"><strong>Prezzo:</strong> €${product.price}</p>
             <p class="card-text"><strong>ID:</strong>${product._id}</p>
-            <a href="Back.html?productId=${product._id}" class="btn btn-warning">Modifica Prodotto</a>
+            <a href="Back.html?productId=${product._id}" class="btn btn-warning fw-bold ">Modifica Prodotto</a>
           </div>
         </div>
       </div>
