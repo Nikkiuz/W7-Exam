@@ -39,11 +39,11 @@ loadButton.addEventListener('click', () => {
             productContainer.innerHTML += card;
         })
 
-        const productImages = document.querySelectorAll('.product-image');
+        const productImages = document.querySelectorAll('.product-image')
   productImages.forEach(image => {
     image.addEventListener('click', function() {
       const productId = this.getAttribute('data-id');
-      window.location.href = `Detail.html?productId=${productId}`;
+      window.location.href = `Detail.html?productId=${productId}`
     })
   })
         document.querySelectorAll(".modify-btn").forEach(button => {

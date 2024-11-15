@@ -4,12 +4,12 @@ yearSpan.innerText = new Date().getFullYear()
 document.getElementById("productForm").addEventListener("submit", function (e) {
     e.preventDefault()
 
-    const confirmation = confirm("Sei sicuro di voler creare/modificare questo prodotto?");
+    const confirmation = confirm("Sei sicuro di voler creare/modificare questo prodotto?")
     if (!confirmation) {
         return
     }
 
-    const productId = document.getElementById("productForm").getAttribute("data-id");
+    const productId = document.getElementById("productForm").getAttribute("data-id")
     const productData = {
         name: document.getElementById("name").value,
         description: document.getElementById("description").value,
@@ -49,8 +49,8 @@ document.getElementById("productForm").addEventListener("submit", function (e) {
     })
 })
 
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get("productId");
+const urlParams = new URLSearchParams(window.location.search)
+const productId = urlParams.get("productId")
 
 if (productId) {
     fetch(`https://striveschool-api.herokuapp.com/api/product/${productId}`, {
@@ -60,7 +60,7 @@ if (productId) {
     })
     .then(response => {
         if (response.ok) {
-            return response.json();
+            return response.json()
         } else {
             throw new Error("Errore nel caricamento del prodotto")
         }

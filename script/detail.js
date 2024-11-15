@@ -17,7 +17,7 @@ if (productId) {
     }
   })
   .then(product => {
-    const productDetail = document.getElementById("card-container");
+    const productDetail = document.getElementById("card-container")
     const productCard = `
       <div class="col-12 mb-4 mt-4">
         <div class="card border-warning text-success">
@@ -33,12 +33,12 @@ if (productId) {
         </div>
       </div>
     `
-    productDetail.innerHTML = productCard;
+    productDetail.innerHTML = productCard
   })
   .catch(error => {
-    console.error("Errore nel recupero del prodotto:", error);
-    alert("Si è verificato un errore nel recupero dei dettagli del prodotto.");
+    console.error("Errore nel recupero del prodotto:", error)
+    alert("Si è verificato un errore nel recupero dei dettagli del prodotto.")
   })
 } else {
-  alert("ID prodotto non trovato.");
+  alert("ID prodotto non trovato.")
 }
