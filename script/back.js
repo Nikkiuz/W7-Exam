@@ -94,7 +94,7 @@ document.getElementById("deleteButton").addEventListener("click", function() {
         })
         .catch(error => {
             console.error("Errore:", error)
-            alert("Eerrore nell'eliminazione del prodotto.")
+            alert("Errore nell'eliminazione del prodotto.")
         })
     }
 })
