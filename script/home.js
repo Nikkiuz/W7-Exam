@@ -28,7 +28,7 @@ loadButton.addEventListener('click', () => {
                             <h5 class="card-title">${product.name}</h5>
                             <p class="card-text">${product.description}</p>
                             <p class="card-text"><strong>Brand:</strong> ${product.brand}</p>
-                            <p class="card-text"><strong>Price:</strong> $${product.price}</p>
+                            <p class="card-text"><strong>Price:</strong> €${product.price}</p>
                             <button class="btn btn-success text-warning fw-bold modify-btn" data-id="${product._id}">Modifica</button>
                         </div>
                     </div>
