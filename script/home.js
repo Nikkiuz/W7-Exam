@@ -21,7 +21,7 @@ loadButton.addEventListener('click', () => {
             const card = `
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+                      <img src="${product.imageUrl}" class="card-img-top product-image" alt="${product.name}" data-id="${product._id}">
                         <div class="card-body">
                             <h5 class="card-title">${product.name}</h5>
                             <p class="card-text">${product.description}</p>
@@ -35,6 +35,13 @@ loadButton.addEventListener('click', () => {
             productContainer.innerHTML += card;
         })
 
+        const productImages = document.querySelectorAll('.product-image');
+  productImages.forEach(image => {
+    image.addEventListener('click', function() {
+      const productId = this.getAttribute('data-id');
+      window.location.href = `Detail.html?productId=${productId}`;
+    })
+  })
         document.querySelectorAll(".modify-btn").forEach(button => {
             button.addEventListener("click", function () {
                 const productId = button.getAttribute("data-id")
@@ -43,4 +50,4 @@ loadButton.addEventListener('click', () => {
         })
     })
     .catch(error => console.error("Errore:", error))
-});
+})

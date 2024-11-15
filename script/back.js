@@ -1,8 +1,11 @@
-
-const myUrl = 'https://striveschool-api.herokuapp.com/api/product/,'
-
 document.getElementById("productForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault()
+
+    const confirmation = confirm("Sei sicuro di voler creare/modificare questo prodotto?");
+    if (!confirmation) {
+        return
+    }
+
     const productId = document.getElementById("productForm").getAttribute("data-id");
     const productData = {
         name: document.getElementById("name").value,
@@ -66,6 +69,39 @@ if (productId) {
         document.getElementById("imageUrl").value = product.imageUrl
         document.getElementById("price").value = product.price
         document.getElementById("productForm").setAttribute("data-id", productId)
+        document.getElementById("deleteButton").style.display = "block"
     })
     .catch(error => console.error("Errore nel recupero del prodotto", error))
 }
+
+
+document.getElementById("deleteButton").addEventListener("click", function() {
+    const productId = document.getElementById("productForm").getAttribute("data-id")
+    if (productId && confirm("Sei sicuro di voler eliminare questo prodotto?")) {
+        fetch(`https://striveschool-api.herokuapp.com/api/product/${productId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzM3MDA4NjhhZDEyOTAwMTU4NzZiYjAiLCJpYXQiOjE3MzE2NTc4NjIsImV4cCI6MTczMjg2NzQ2Mn0.yUJnuzj1z4LWUFNs5M3xsZG8AUxLupnaVzzFpUjSB0o"
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Prodotto eliminato con successo!")
+                window.location.href = "./Home.html"
+            } else {
+                alert("Errore nell'eliminazione del prodotto.")
+            }
+        })
+        .catch(error => {
+            console.error("Errore:", error)
+            alert("Eerrore nell'eliminazione del prodotto.")
+        })
+    }
+})
+
+document.getElementById("resetButton").addEventListener("click", function () {
+    if (confirm("Sei sicuro di voler resettare il form?")) {
+        document.getElementById("productForm").reset()
+        document.getElementById("productForm").removeAttribute("data-id")
+    }
+})
