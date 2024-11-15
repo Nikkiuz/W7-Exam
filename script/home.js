@@ -1,6 +1,8 @@
 const loadButton = document.getElementById('load')
 const productContainer = document.getElementById('products-row')
 const spinner = document.getElementById('spinner')
+const yearSpan = document.getElementById('current-year')
+yearSpan.innerText = new Date().getFullYear()
 
 loadButton.addEventListener('click', () => {
     fetch('https://striveschool-api.herokuapp.com/api/product/', {

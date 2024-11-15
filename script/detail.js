@@ -1,5 +1,7 @@
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get("productId");
+const urlParams = new URLSearchParams(window.location.search)
+const productId = urlParams.get("productId")
+const yearSpan = document.getElementById('current-year') 
+yearSpan.innerText = new Date().getFullYear()
 
 if (productId) {
   fetch(`https://striveschool-api.herokuapp.com/api/product/${productId}`, {

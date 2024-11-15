@@ -1,3 +1,6 @@
+const yearSpan = document.getElementById('current-year')
+yearSpan.innerText = new Date().getFullYear()
+
 document.getElementById("productForm").addEventListener("submit", function (e) {
     e.preventDefault()
 
